@@ -2,21 +2,27 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: cl.exe build active file",
+            "label": "C/C++: cl.exe build PE inspector",
             "command": "cl.exe",
             "args": [
                 "/Zi",
                 "/EHsc",
                 "/nologo",
-                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${file}"
+                "/Fe${fileDirname}\\main.exe",
+                "${fileDirname}\\main.cpp",
+                "${fileDirname}\\loader_core.cpp",
+                "${fileDirname}\\loader32.cpp",
+                "${fileDirname}\\loader64.cpp",
+                "/link",
+                "crypt32.lib",
+                "/SUBSYSTEM:CONSOLE"
+            ],
+            "problemMatcher": [
+                "$msCompile"
             ],
             "options": {
                 "cwd": "${fileDirname}"
             },
-            "problemMatcher": [
-                "$msCompile"
-            ],
             "group": {
                 "kind": "build",
                 "isDefault": true

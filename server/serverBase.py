@@ -7,14 +7,14 @@ class ServerBase:
         self.server_socket = None
 
     def start_server(self):
-        """Start the server and listen for incoming connections."""
+        """Start the server and listen for incoming connections"""
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server_socket.bind((self.host, self.port))
         self.server_socket.listen(5)
         print(f"Server started on {self.host}:{self.port}")
 
     def accept_connections(self):
-        """Accept incoming connections and handle them."""
+        """Accept incoming connections and handle them"""
         while True:
             client_socket, addr = self.server_socket.accept()
             print(f"Connection accepted from {addr}")
